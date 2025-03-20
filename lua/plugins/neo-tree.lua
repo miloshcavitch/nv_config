@@ -7,6 +7,24 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
+		--	vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
+		vim.keymap.set("n", "<C-n>", function()
+			local neotree_buffers = {}
+
+			-- Find all Neotree buffers
+			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+				if vim.bo[buf].filetype == "neo-tree" then
+					table.insert(neotree_buffers, buf)
+				end
+			end
+
+			if #neotree_buffers > 0 then
+				-- Close all Neotree windows
+				vim.cmd("Neotree close")
+			else
+				-- Open Neotree
+				vim.cmd("Neotree filesystem reveal left")
+			end
+		end, { noremap = true, silent = true })
 	end,
 }
