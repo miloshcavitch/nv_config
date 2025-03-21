@@ -16,6 +16,14 @@ if isUsingCodeCompanion then
 			local api_key = getosvar.get_env_var("ANTHROPIC_API_KEY")
 
 			require("codecompanion").setup({
+				display = {
+					chat = {
+						window = {
+							position = "right",
+							width = 0.3,
+						},
+					},
+				},
 				strategies = {
 					chat = {
 						adapter = "anthropic",
@@ -34,7 +42,7 @@ if isUsingCodeCompanion then
 					end,
 				},
 			})
-			vim.keymap.set({ "n", "v", "i" }, "<C-l>", ":CodeCompanionChat Toggle<CR>", { silent = true })
+			vim.keymap.set({ "n", "v", "i" }, "<leader>aa", ":CodeCompanionChat Toggle<CR>", { silent = true })
 		end,
 		init = function()
 			-- Use proper Lua module path with dots instead of slashes

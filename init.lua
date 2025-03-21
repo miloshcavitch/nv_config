@@ -1,3 +1,6 @@
+-- Load environment variables
+require("utils.env").load_env()
+
 -- Bootstrap lazy.nvim
 vim.g.mapleader = " "
 

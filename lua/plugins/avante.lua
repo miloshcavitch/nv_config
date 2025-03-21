@@ -70,8 +70,21 @@ if isUsingAvante then
 						__inherited_from = "openai",
 						endpoint = "https://openrouter.ai/api/v1",
 						api_key_name = "OPENROUTER_API_KEY",
-						model = "anthropic/claude-3.7-sonnet",
+						mode = { "anthropic/claude-3.7-sonnet" },
 					},
+					-- claude3_5_sonnet = {
+					-- 	__inherited_from = "openai",
+					-- 	endpoint = "https://openrouter.ai/api/v1",
+					-- 	api_key_name = "OPENROUTER_API_KEY",
+					-- 	mode = { "anthropic/claude-3.5-sonnet" },
+					-- 	-- model = { "anthropic/claude-3.5-sonnet", "anthropic/claude-3.7-sonnet", "google/gemini-2.0-flash-lite-001" },
+					-- },
+					-- gemini2_0_flash_light = {
+					-- 	__inherited_from = "openai",
+					-- 	endpoint = "https://openrouter.ai/api/v1",
+					-- 	api_key_name = "OPENROUTER_API_KEY",
+					-- 	mode = { "google/gemini-2.0-flash-lite-001" },
+					-- },
 				},
 			})
 		end,
