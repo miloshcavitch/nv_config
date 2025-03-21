@@ -1,5 +1,12 @@
 return {
 	{
+		"goolord/alpha-nvim",
+		dependencies = { "echasnovski/mini.icons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -16,7 +23,7 @@ return {
 
 		config = function()
 			require("kanagawa").setup({
-				transparent = true,
+				-- transparent = true,
 			})
 			vim.cmd.colorscheme("kanagawa-dragon")
 		end,
